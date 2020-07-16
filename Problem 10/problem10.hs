@@ -5,7 +5,7 @@ factors :: Int -> Int
 factors n = sum [if isqrt n == x && x^2 == n then 1 else 2 | x <- [1..(isqrt n)], n `mod` x == 0]
 
 primes :: [Int]
-primes = 1 : 2 : filter (\x -> factors x == 2) [3,5..]
+primes = 2 : filter (\x -> factors x == 2) [3,5..]
 
 main :: IO ()
 main = print . sum $ (takeWhile (<2000000) primes)
